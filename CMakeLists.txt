@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.28.3)
+cmake_minimum_required(VERSION 3.31.6)
 project(Classic_100_Questions C)
 
 set(CMAKE_C_STANDARD 99)
@@ -13,3 +13,5 @@ add_executable(Demo_011 Code/Demo_011.c)
 add_executable(Demo_012 Code/Demo_012.c)
 add_executable(Demo_015 Code/Demo_015.c)
 add_executable(Demo_016 Code/Demo_016.c)
+add_executable(Demo_017 Code/Demo_017.c)
+add_executable(Demo_018 Code/Demo_018.c)

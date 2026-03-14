@@ -1,25 +1,29 @@
 // C 练习实例16 - 公约数＆公倍数
 // 题目：输入两个正整数m和n，求其最大公约数和最小公倍数。
+
 #include <stdio.h>
 
-int main() {
-    int m = 0, n = 0, gcd_value = 0, lcm_value = 0;
-    scanf("%d %d", &m, &n);
-
-    int original_m = m;
-    int original_n = n;
-
-    int min_num = (m > n) ? n : m;
-    for (int i = 1; i <= min_num; i++) {
-        if (m % i == 0 && n % i == 0) {
-            gcd_value = i;
-        }
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b; // 把b存进temp里面
+        b = a % b; // 一直到b = 0
+        a = temp;
     }
+    return a;
+}
 
-    lcm_value = (original_m * original_n) / gcd_value;
+int lcm(int a, int b) {
+    return (a * b) / gcd(a, b);
+}
 
-    printf("%d和%d的最大公约数为：%d\n", original_m, original_n, gcd_value);
-    printf("%d和%d的最小公倍数为：%d\n", original_m, original_n, lcm_value);
-
-    return 0;
+int main() {
+    int m, n;
+    printf("请输入两个正整数 m 和 n: \n");
+    scanf("%d %d", &m, &n);
+    // 计算最大公约数和最小公倍数
+    int gcd_value = gcd(m, n);
+    int lcm_value = lcm(m, n);
+    // 打印结果
+    printf("最大公约数 (GCD) = %d\n", gcd_value);
+    printf("最小公倍数 (LCM) = %d\n", lcm_value);
 }
